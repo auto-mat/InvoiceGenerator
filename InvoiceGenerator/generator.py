@@ -148,17 +148,17 @@ class Invoice:
         path = self.pdf.beginPath()
         path.moveTo((self.LEFT+88)*mm, (self.TOP-3)*mm)
         path.lineTo((self.LEFT+88)*mm, (self.TOP-68)*mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         path = self.pdf.beginPath()
         path.moveTo((self.LEFT)*mm, (self.TOP-39)*mm)
         path.lineTo((self.LEFT+88)*mm, (self.TOP-39)*mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         path = self.pdf.beginPath()
         path.moveTo((self.LEFT+88)*mm, (self.TOP-23)*mm)
         path.lineTo((self.LEFT+176)*mm, (self.TOP-23)*mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
     def _drawAddress(self, TOP, LEFT, header_string, address):
         self.pdf.setFont("DejaVu", 12)
@@ -206,7 +206,7 @@ Variabilní symbol: %s""" % (self.provider.bank_name, self.provider.bank_account
         path = self.pdf.beginPath()
         path.moveTo((LEFT)*mm, (TOP-4)*mm)
         path.lineTo((LEFT+176)*mm, (TOP-4)*mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         self.pdf.setFont("DejaVu", 9)
         self.pdf.drawString((LEFT+1)*mm, (TOP-2)*mm, "Fakturuji vám:")
@@ -231,7 +231,7 @@ Variabilní symbol: %s""" % (self.provider.bank_name, self.provider.bank_account
         path = self.pdf.beginPath()
         path.moveTo((LEFT)*mm, (TOP-i)*mm)
         path.lineTo((LEFT+176)*mm, (TOP-i)*mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         self.pdf.setFont("DejaVu", 12)
         self.pdf.drawString((LEFT+130)*mm, (TOP-i-10)*mm, "Celkem: %d ,- kč" % total)
@@ -244,7 +244,7 @@ Variabilní symbol: %s""" % (self.provider.bank_name, self.provider.bank_account
         path = self.pdf.beginPath()
         path.moveTo((LEFT+110)*mm, (TOP-i-70)*mm)
         path.lineTo((LEFT+164)*mm, (TOP-i-70)*mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         self.pdf.drawString((LEFT+112)*mm, (TOP-i-75)*mm, "Vystavil: %s" % self.creator)
 

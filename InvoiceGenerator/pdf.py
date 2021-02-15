@@ -196,17 +196,17 @@ class SimpleInvoice(BaseInvoice):
         path = self.pdf.beginPath()
         path.moveTo((self.LEFT + 88) * mm, (self.TOP - 3) * mm)
         path.lineTo((self.LEFT + 88) * mm, (self.TOP - 68) * mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         path = self.pdf.beginPath()
         path.moveTo(self.LEFT * mm, (self.TOP - 39) * mm)
         path.lineTo((self.LEFT + 88) * mm, (self.TOP - 39) * mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         path = self.pdf.beginPath()
         path.moveTo((self.LEFT + 88) * mm, (self.TOP - 27) * mm)
         path.lineTo((self.LEFT + 176) * mm, (self.TOP - 27) * mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
     def _drawAddress(self, top, left, width, height, header_string, address):
         self.pdf.setFont('DejaVu', 8)
@@ -270,7 +270,7 @@ class SimpleInvoice(BaseInvoice):
         path = self.pdf.beginPath()
         path.moveTo(LEFT * mm, (TOP - 4) * mm)
         path.lineTo((LEFT + 176) * mm, (TOP - 4) * mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         self.pdf.setFont('DejaVu-Bold', 7)
         self.pdf.drawString((LEFT + 1) * mm, (TOP - 2) * mm, _(u'List of items'))
@@ -353,7 +353,7 @@ class SimpleInvoice(BaseInvoice):
             path.moveTo(LEFT * mm, (TOP - i + 3.5) * mm)
             path.lineTo((LEFT + 176) * mm, (TOP - i + 3.5) * mm)
             self.pdf.setLineWidth(0.1)
-            self.pdf.drawPath(path, True, True)
+            self.pdf.drawPath(path)
             self.pdf.setLineWidth(1)
 
             i += i_add
@@ -391,7 +391,7 @@ class SimpleInvoice(BaseInvoice):
             path.moveTo(LEFT * mm, (TOP - i) * mm)
             path.lineTo((LEFT + 176) * mm, (TOP - i) * mm)
             i += 5
-            self.pdf.drawPath(path, True, True)
+            self.pdf.drawPath(path)
             self.pdf.drawString((LEFT + 1) * mm, (TOP - i) * mm, _(u'Rounding'))
             self.pdf.drawString((LEFT + 68) * mm, (TOP - i) * mm, currency(self.invoice.difference_in_rounding, self.invoice.currency, self.invoice.currency_locale))
             i += 3
@@ -399,7 +399,7 @@ class SimpleInvoice(BaseInvoice):
         path = self.pdf.beginPath()
         path.moveTo(LEFT * mm, (TOP - i) * mm)
         path.lineTo((LEFT + 176) * mm, (TOP - i) * mm)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         if not items_are_with_tax:
             self.pdf.setFont('DejaVu-Bold', 11)
@@ -461,7 +461,7 @@ class SimpleInvoice(BaseInvoice):
         path = self.pdf.beginPath()
         path.moveTo((LEFT + 8) * mm, (TOP) * mm - height)
         path.lineTo((LEFT + self.line_width) * mm, (TOP) * mm - height)
-        self.pdf.drawPath(path, True, True)
+        self.pdf.drawPath(path)
 
         self.pdf.drawString((LEFT + 10) * mm, (TOP - 5) * mm - height, '%s: %s' % (_(u'Creator'), self.invoice.creator.name))
 
